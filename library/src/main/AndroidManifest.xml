@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="danubis.derrick.library">
+    package="danubis.derrick.searchview">
 
     <application android:supportsRtl="true">
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="danubis.derrick.sample.MainActivity">
 
-    <danubis.derrick.library.SearchView
+    <danubis.derrick.searchview.SearchView
         android:id="@+id/searchView"
         android:layout_width="300dp"
         android:layout_height="wrap_content"

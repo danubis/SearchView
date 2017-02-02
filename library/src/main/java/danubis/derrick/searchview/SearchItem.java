@@ -1,4 +1,4 @@
-package danubis.derrick.library;
+package danubis.derrick.searchview;
 
 import android.os.Parcel;
 import android.os.Parcelable;

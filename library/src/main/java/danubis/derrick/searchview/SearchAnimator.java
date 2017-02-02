@@ -1,4 +1,4 @@
-package danubis.derrick.library;
+package danubis.derrick.searchview;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;

@@ -18,7 +18,7 @@
             android:orientation="horizontal"
             android:paddingRight="@dimen/search_key_line">
 
-            <danubis.derrick.library.SearchEditText
+            <danubis.derrick.searchview.SearchEditText
                 android:id="@+id/searchEditText_input"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

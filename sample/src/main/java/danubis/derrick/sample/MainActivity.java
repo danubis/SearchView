@@ -11,9 +11,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import danubis.derrick.library.SearchAdapter;
-import danubis.derrick.library.SearchItem;
-import danubis.derrick.library.SearchView;
+import danubis.derrick.searchview.SearchAdapter;
+import danubis.derrick.searchview.SearchItem;
+import danubis.derrick.searchview.SearchView;
 
 
 public class MainActivity extends AppCompatActivity {
