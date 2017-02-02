@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Launcher -->
-    <style name="LauncherAppTheme" parent="BaseAppThemeLight">
-        <item name="colorPrimaryDark">#60000000</item>
-        <item name="android:windowBackground">@drawable/launch_screen</item>
-    </style>
-
     <!-- Base -->
     <style name="BaseAppThemeDark" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
