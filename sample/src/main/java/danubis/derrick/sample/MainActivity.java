@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -48,6 +49,20 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        mSearchView.setOnOpenCloseListener(new SearchView.OnOpenCloseListener() {
+            @Override
+            public boolean onClose() {
+                Log.e("testing", "onClose...");
+                return false;
+            }
+
+            @Override
+            public boolean onOpen() {
+                Log.e("testing", "onOpen...");
                 return false;
             }
         });

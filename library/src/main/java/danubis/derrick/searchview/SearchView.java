@@ -573,35 +573,6 @@ public class SearchView extends CardView implements View.OnClickListener {
         }
     }
 
-//    @Override
-//    protected Parcelable onSaveInstanceState() {
-//        Parcelable superState = super.onSaveInstanceState();
-//        SavedState ss = new SavedState(superState);
-//
-//        ss.query = mUserQuery != null ? mUserQuery.toString() : null;
-//        ss.isSearchOpen = mIsSearchOpen;
-//
-//        return ss;
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(Parcelable state) {
-//        if (!(state instanceof SavedState)) {
-//            super.onRestoreInstanceState(state);
-//            return;
-//        }
-//
-//        SavedState ss = (SavedState) state;
-//        if (ss.isSearchOpen) {
-//            open();
-//            setQueryWithoutSubmitting(ss.query); // TODO
-//            mSearchEditText.requestFocus();
-//        }
-//
-//        super.onRestoreInstanceState(ss.getSuperState());
-//        requestLayout();
-//    }
-
     public void setOnQueryTextListener(OnQueryTextListener listener) {
         mOnQueryChangeListener = listener;
     }
@@ -613,52 +584,15 @@ public class SearchView extends CardView implements View.OnClickListener {
         boolean onQueryTextChange(String newText);
     }
 
+    public void setOnOpenCloseListener(OnOpenCloseListener listener) {
+        mOnOpenCloseListener = listener;
+    }
+
     @SuppressWarnings({"UnusedReturnValue", "SameReturnValue"})
     public interface OnOpenCloseListener {
         boolean onClose();
 
         boolean onOpen();
     }
-
-//    private static class SavedState extends BaseSavedState {
-//
-//        public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
-//            @Override
-//            public SavedState createFromParcel(Parcel in) {
-//                return new SavedState(in);
-//            }
-//
-//            @Override
-//            public SavedState[] newArray(int size) {
-//                return new SavedState[size];
-//            }
-//        };
-//        String query;
-//        boolean isSearchOpen;
-//
-//        SavedState(Parcelable superState) {
-//            super(superState);
-//        }
-//
-//        SavedState(Parcel source) {
-//            super(source);
-//            this.query = source.readString();
-//            this.isSearchOpen = source.readInt() == 1;
-//        }
-//
-//        @TargetApi(24)
-//        SavedState(Parcel source, ClassLoader loader) {
-//            super(source, loader);
-//            this.query = source.readString();
-//            this.isSearchOpen = source.readInt() == 1;
-//        }
-//
-//        @Override
-//        public void writeToParcel(Parcel out, int flags) {
-//            super.writeToParcel(out, flags);
-//            out.writeString(query);
-//            out.writeInt(isSearchOpen ? 1 : 0);
-//        }
-//    }
 }
 
