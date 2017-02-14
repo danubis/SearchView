@@ -3,6 +3,7 @@ package danubis.derrick.searchview;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -33,8 +34,10 @@ class SearchAnimator {
 
         view.setLayerType(View.LAYER_TYPE_HARDWARE, null);
 
-        ObjectAnimator anim1 = ObjectAnimator.ofFloat(view, "elevation", 0f, 20f);
-        ObjectAnimator anim2 = ObjectAnimator.ofFloat(view, "y", view.getY(), view.getY() - distance);
+        View containerView = view.findViewById(R.id.container);
+
+        ObjectAnimator changeYPosition = ObjectAnimator.ofFloat(view, "y", view.getY(), view.getY() - distance);
+        ObjectAnimator changeElevation = ObjectAnimator.ofFloat(containerView, "elevation", 0f, 10f);
 
         AnimatorSet set = new AnimatorSet();
         set.addListener(new Animator.AnimatorListener() {
@@ -58,7 +61,7 @@ class SearchAnimator {
 
             }
         });
-        set.playTogether(anim1, anim2);
+        set.playTogether(changeYPosition, changeElevation);
         set.setDuration(duration);
         set.start();
     }
@@ -67,8 +70,10 @@ class SearchAnimator {
 
         view.setLayerType(View.LAYER_TYPE_HARDWARE, null);
 
-        ObjectAnimator anim1 = ObjectAnimator.ofFloat(view, "elevation", 20f, 0f);
-        ObjectAnimator anim2 = ObjectAnimator.ofFloat(view, "y", view.getY(), view.getY() + distance);
+        View containerView = view.findViewById(R.id.container);
+
+        ObjectAnimator changeYPosition = ObjectAnimator.ofFloat(view, "y", view.getY(), view.getY() + distance);
+        ObjectAnimator changeElevation = ObjectAnimator.ofFloat(containerView, "elevation", 10f, 0f);
 
         AnimatorSet set = new AnimatorSet();
         set.addListener(new Animator.AnimatorListener() {
@@ -92,7 +97,7 @@ class SearchAnimator {
 
             }
         });
-        set.playTogether(anim1, anim2);
+        set.playTogether(changeYPosition, changeElevation);
         set.setDuration(duration);
         set.start();
     }

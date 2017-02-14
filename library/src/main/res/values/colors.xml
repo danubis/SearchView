@@ -17,4 +17,8 @@
     <color name="search_dark_hint">#80ffffff</color>
     <color name="search_dark_text_highlight">#62ffffff</color>
 
+    <color name="crown_gold">#a79368</color>
+    <color name="crown_gray">#757575</color>
+    <color name="transparent">#00000000</color>
+
 </resources>

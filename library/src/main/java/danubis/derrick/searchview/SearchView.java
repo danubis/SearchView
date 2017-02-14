@@ -27,15 +27,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.lang.reflect.Field;
 
 
-public class SearchView extends CardView implements View.OnClickListener {
-
-    public static final int THEME_LIGHT = 3000;
-    public static final int THEME_DARK = 3001;
+public class SearchView extends LinearLayout implements View.OnClickListener {
 
     public static final int ANIMATION_DURATION = 300;
 
@@ -55,6 +53,7 @@ public class SearchView extends CardView implements View.OnClickListener {
     private SearchEditText mSearchEditText;
     private ImageView mSearchImageView;
     private ImageView mEmptyImageView;
+    private LinearLayout mContainer;
     private LinearLayout mLinearLayout;
     private CharSequence mOldQueryText;
     private CharSequence mUserQuery = "";
@@ -123,6 +122,7 @@ public class SearchView extends CardView implements View.OnClickListener {
     private void initView() {
         inflate(mContext, R.layout.search_view, this);
 
+        mContainer = (LinearLayout) findViewById(R.id.container);
         mLinearLayout = (LinearLayout) findViewById(R.id.linearLayout);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView_result);
@@ -188,9 +188,6 @@ public class SearchView extends CardView implements View.OnClickListener {
                 }
             }
         });
-
-        setTheme(THEME_LIGHT);
-        setCardElevation(0f);
     }
 
     private void initStyle(AttributeSet attrs, int defStyleAttr) {
@@ -199,14 +196,8 @@ public class SearchView extends CardView implements View.OnClickListener {
             if (attr.hasValue(R.styleable.SearchView_search_height)) {
                 setHeight(attr.getDimension(R.styleable.SearchView_search_height, 0));
             }
-            if (attr.hasValue(R.styleable.SearchView_search_theme)) {
-                setTheme(attr.getInt(R.styleable.SearchView_search_theme, THEME_LIGHT));
-            }
             if (attr.hasValue(R.styleable.SearchView_search_icon_color)) {
                 setIconColor(attr.getColor(R.styleable.SearchView_search_icon_color, 0));
-            }
-            if (attr.hasValue(R.styleable.SearchView_search_background_color)) {
-                setBackgroundColor(attr.getColor(R.styleable.SearchView_search_background_color, 0));
             }
             if (attr.hasValue(R.styleable.SearchView_search_text_color)) {
                 setTextColor(attr.getColor(R.styleable.SearchView_search_text_color, 0));
@@ -355,32 +346,6 @@ public class SearchView extends CardView implements View.OnClickListener {
         mLinearLayout.setLayoutParams(params);
     }
 
-    public void setTheme(int theme) {
-        setTheme(theme, true);
-    }
-
-    public void setTheme(int theme, boolean tint) {
-        if (theme == THEME_LIGHT) {
-            setBackgroundColor(ContextCompat.getColor(mContext, R.color.search_light_background));
-            if (tint) {
-                setIconColor(ContextCompat.getColor(mContext, R.color.search_light_icon));
-                setHintColor(ContextCompat.getColor(mContext, R.color.search_light_hint));
-                setTextColor(ContextCompat.getColor(mContext, R.color.search_light_text));
-                setTextHighlightColor(ContextCompat.getColor(mContext, R.color.search_light_text_highlight));
-            }
-        }
-
-        if (theme == THEME_DARK) {
-            setBackgroundColor(ContextCompat.getColor(mContext, R.color.search_dark_background));
-            if (tint) {
-                setIconColor(ContextCompat.getColor(mContext, R.color.search_dark_icon));
-                setHintColor(ContextCompat.getColor(mContext, R.color.search_dark_hint));
-                setTextColor(ContextCompat.getColor(mContext, R.color.search_dark_text));
-                setTextHighlightColor(ContextCompat.getColor(mContext, R.color.search_dark_text_highlight));
-            }
-        }
-    }
-
     public void setTextSize(float size) {
         mSearchEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
     }
@@ -399,11 +364,6 @@ public class SearchView extends CardView implements View.OnClickListener {
 
     public void setAnimationDuration(int animationDuration) {
         mAnimationDuration = animationDuration;
-    }
-
-    @Override
-    public void setBackgroundColor(@ColorInt int color) {
-        setCardBackgroundColor(color);
     }
 
     public void setCursorDrawable(@DrawableRes int drawable) {
