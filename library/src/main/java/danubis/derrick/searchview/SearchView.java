@@ -95,7 +95,6 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
 
     public void setTextColor(@ColorInt int color) {
         mTextColor = color;
-        mSearchEditText.setTextColor(mTextColor);
     }
 
     public static int getTextHighlightColor() {
@@ -412,6 +411,7 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
             mEmptyImageView.setVisibility(View.VISIBLE);
         }
         showSuggestions();
+        mContainer.setBackground(mContext.getDrawable(R.drawable.search_view_opened_bg));
     }
 
     public void removeFocus() {
@@ -432,6 +432,7 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
             mEmptyImageView.setVisibility(View.GONE);
         }
         hideSuggestions();
+        mContainer.setBackground(mContext.getDrawable(R.drawable.search_view_bg));
     }
 
     public void showSuggestions() {

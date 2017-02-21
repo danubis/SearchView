@@ -3,7 +3,7 @@
     android:id="@+id/search_view_item"
     android:layout_width="match_parent"
     android:layout_height="@dimen/search_item_height"
-    android:background="@color/crown_gray"
+    android:background="@color/transparent"
     android:clickable="true"
     android:gravity="start|center_vertical"
     android:orientation="horizontal"
@@ -20,9 +20,10 @@
         android:layout_marginRight="@dimen/search_item_margin_text"
         android:layout_marginStart="@dimen/search_item_margin_text"
         android:layout_weight="1"
-        android:background="@color/crown_gray"
+        android:background="@color/transparent"
         android:gravity="start|center_vertical"
         android:maxLines="1"
+        android:textColor="@color/crown_gold"
         android:textIsSelectable="false"
         android:textSize="@dimen/search_text_small" />
 
