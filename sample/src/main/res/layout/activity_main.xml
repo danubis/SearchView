@@ -5,11 +5,12 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/app_bg"
     tools:context="danubis.derrick.sample.MainActivity">
 
     <danubis.derrick.searchview.SearchView
         android:id="@+id/searchView"
-        android:layout_width="500dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"

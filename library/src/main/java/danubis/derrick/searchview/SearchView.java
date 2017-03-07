@@ -64,6 +64,9 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
     private boolean mShouldClearOnClose = false;
     private boolean mShouldHideOnKeyboardClose = true;
 
+    private int backgroundId = -1;
+    private int openedBackgroundId = -1;
+
     public SearchView(Context context) {
         this(context, null);
     }
@@ -116,6 +119,15 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
     public void setTextStyle(int style) {
         mTextStyle = style;
         mSearchEditText.setTypeface((Typeface.create(mTextFont, mTextStyle)));
+    }
+
+    public void setBackground(int drawableId) {
+        mContainer.setBackgroundResource(drawableId);
+        backgroundId = drawableId;
+    }
+
+    public void setOpenedBackground(int drawableId) {
+        openedBackgroundId = drawableId;
     }
 
     private void initView() {
@@ -410,8 +422,10 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
             mSearchImageView.setVisibility(GONE);
             mEmptyImageView.setVisibility(View.VISIBLE);
         }
+        if (openedBackgroundId != -1) {
+            mContainer.setBackgroundResource(openedBackgroundId);
+        }
         showSuggestions();
-        mContainer.setBackground(mContext.getDrawable(R.drawable.search_view_opened_bg));
     }
 
     public void removeFocus() {
@@ -431,8 +445,10 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
             mSearchImageView.setVisibility(VISIBLE);
             mEmptyImageView.setVisibility(View.GONE);
         }
+        if (openedBackgroundId != -1) {
+            mContainer.setBackgroundResource(backgroundId);
+        }
         hideSuggestions();
-        mContainer.setBackground(mContext.getDrawable(R.drawable.search_view_bg));
     }
 
     public void showSuggestions() {

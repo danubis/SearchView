@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void setSearchView() {
 
         mSearchView = (SearchView) findViewById(R.id.searchView);
+        mSearchView.setBackground(R.drawable.search_view_bg);
+        mSearchView.setOpenedBackground(R.drawable.search_view_opened_bg);
         mSearchView.setHint("Search");
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
